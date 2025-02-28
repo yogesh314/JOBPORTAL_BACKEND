@@ -18,6 +18,7 @@ public class JobRepo {
             new JobPost(4, "Network Engineer", "Design and implement computer networks for efficient data communication", 5, Arrays.asList("Networking", "Cisco", "Routing", "Switching")),
             new JobPost(5, "Mobile App Developer", "Experience in mobile app development for iOS and Android", 3, Arrays.asList("iOS Development", "Android Development", "Mobile App"))
     ));
+
     public void addJob(JobPost job){
         jobs.add(job);
         System.out.println(jobs);
@@ -25,5 +26,13 @@ public class JobRepo {
 
     public List<JobPost> getAllJobs(){
             return jobs;
+    }
+
+    public JobPost getJob(int postId) {
+
+        for(JobPost job : jobs){
+            if(job.getPostId() == postId) return job;
+        }
+        return null;
     }
 }
