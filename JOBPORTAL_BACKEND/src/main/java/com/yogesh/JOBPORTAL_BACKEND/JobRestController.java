@@ -4,13 +4,15 @@ import com.yogesh.JOBPORTAL_BACKEND.model.JobPost;
 import com.yogesh.JOBPORTAL_BACKEND.service.JobService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RestController                             // using RestController if our whole controller is returning rest data don't need ResponseBody
+@RestController                                       //Using RestController if our whole controller is returning rest data don't need ResponseBody
+@CrossOrigin(origins = "http://localhost:3000")       //Adding this to solve the security issue between frontend and backend
 public class JobRestController {
 
     @Autowired
