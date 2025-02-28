@@ -27,7 +27,20 @@ public class JobRestController {
     }
 
     @PostMapping("jobPost")                                                 //We are using PostMapping to get data from user we can use same endpoint in GetMapping and PostMapping
-    public void addJob(@RequestBody JobPost jobPost){                       //Here We are using RequestBody to Map Json data that we are getting from user to JobPost object
+    public JobPost addJob(@RequestBody JobPost jobPost){                       //Here We are using RequestBody to Map Json data that we are getting from user to JobPost object
         service.addJob(jobPost);
+        return service.getJob(jobPost.getPostId());
+    }
+
+    @PutMapping("jobPost")
+    public JobPost updateJob(@RequestBody JobPost jobPost){
+        service.updateJob(jobPost);
+        return service.getJob(jobPost.getPostId());
+    }
+
+    @DeleteMapping("jobPost/{postId}")
+    public String deletePost(@PathVariable int postId){
+        service.deletePost(postId);
+        return "Deleted";
     }
 }
