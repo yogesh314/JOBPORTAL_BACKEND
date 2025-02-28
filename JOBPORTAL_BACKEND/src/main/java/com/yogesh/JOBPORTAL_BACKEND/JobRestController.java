@@ -25,4 +25,9 @@ public class JobRestController {
     public JobPost getJob(@PathVariable("postId") int postId){              //Adding PathVariable so that we can fetch postId from url
         return service.getJob(postId);
     }
+
+    @PostMapping("jobPost")                                                 //We are using PostMapping to get data from user we can use same endpoint in GetMapping and PostMapping
+    public void addJob(@RequestBody JobPost jobPost){                       //Here We are using RequestBody to Map Json data that we are getting from user to JobPost object
+        service.addJob(jobPost);
+    }
 }
